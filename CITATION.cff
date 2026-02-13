@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Multimodal AutoML Survey Assets"
+message: "If you use this repository, please cite it using this metadata."
+type: software
+authors:
+  - family-names: "Blazs"
+version: "0.1.0"
+date-released: "2026-02-13"
+license: "MIT"

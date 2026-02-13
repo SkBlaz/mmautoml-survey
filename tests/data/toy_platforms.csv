@@ -1,0 +1,6 @@
+name,year,text,image,audio,tabular,availability,reference,type
+Alpha,2020,1,1,0,0,oss,https://example.com/a,framework
+Beta,2018,1,0,0,1,proprietary,https://example.com/b,platform
+Gamma,2019,1,1,1,0,oss,https://example.com/c,platform
+Delta,2021,1,0,1,1,mixed,https://example.com/d,product
+Epsilon,2022,1,1,0,1,oss,https://example.com/e,framework

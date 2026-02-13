@@ -1,0 +1,28 @@
+name: Release Artifact
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build source artifact
+        run: |
+          mkdir -p dist
+          tar -czf dist/mmautoml-survey-artifact.tar.gz \
+            --exclude='.venv' \
+            --exclude='outputs/*' \
+            README.md Makefile pyproject.toml uv.lock LICENSE CITATION.cff data src docs tests .github/workflows
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mmautoml-survey-artifact
+          path: dist/mmautoml-survey-artifact.tar.gz
