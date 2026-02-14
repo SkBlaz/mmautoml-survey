@@ -44,6 +44,10 @@ def configure_plot_style(use_tex: bool) -> None:
 
 def generate_jointplot(data: pd.DataFrame, output_path: Path) -> None:
     subframe = data[["name", "year"]].sort_values(by=["year", "name"], kind="mergesort")
+    year_min = int(subframe["year"].min())
+    year_max = int(subframe["year"].max())
+    year_ticks = build_year_ticks(subframe["year"])
+
     plot = sns.jointplot(
         x=subframe["year"],
         y=subframe["name"],
@@ -52,12 +56,35 @@ def generate_jointplot(data: pd.DataFrame, output_path: Path) -> None:
         color="black",
         height=8.27,
     )
+    for axis in (plot.ax_joint, plot.ax_marg_x):
+        axis.set_xlim(year_min - 0.5, year_max + 0.5)
+
+    plot.ax_joint.set_xticks(year_ticks)
     plot.ax_marg_y.set_visible(False)
     plot.ax_joint.set_ylabel("")
     plot.ax_joint.set_xlabel("Year")
     plot.figure.tight_layout()
     plot.figure.savefig(output_path, dpi=300)
     plt.close(plot.figure)
+
+
+def build_year_ticks(years: pd.Series, *, step: int = 2) -> list[int]:
+    if years.empty:
+        raise ValueError("Cannot build year ticks from an empty series.")
+    if step <= 0:
+        raise ValueError("Tick step must be a positive integer.")
+
+    year_min = int(years.min())
+    year_max = int(years.max())
+    ticks = list(range(year_min, year_max + 1, step))
+
+    if ticks[-1] != year_max:
+        if len(ticks) > 1 and year_max - ticks[-1] < step:
+            ticks[-1] = year_max
+        else:
+            ticks.append(year_max)
+
+    return ticks
 
 
 def generate_dendrogram(
