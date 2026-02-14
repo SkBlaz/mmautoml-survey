@@ -132,16 +132,18 @@ def generate_dendrogram(
 
     handles = [Rectangle((0, 0), 1, 1, color=MODAL_COLORS[key]) for key in MODALITIES]
     legend_kwargs = {
-        "fontsize": 18,
-        "loc": "upper left",
-        "bbox_to_anchor": (0.02, 1.03),
+        "fontsize": 16,
+        "loc": "upper center",
+        "bbox_to_anchor": (0.5, 0.995),
+        "ncol": len(MODALITIES),
         "frameon": False,
     }
     if legend_title:
         legend_kwargs["title"] = legend_title
-    ax.legend(handles, MODALITIES, **legend_kwargs)
+        legend_kwargs["title_fontsize"] = 16
+    fig.legend(handles, MODALITIES, **legend_kwargs)
 
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0, 1, 0.9))
     fig.savefig(output_path, dpi=300)
     plt.close(fig)
 
