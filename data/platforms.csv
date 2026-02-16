@@ -1,11 +1,8 @@
 name,year,text,image,audio,tabular,availability,reference,type,notes,version,date_first_release
 DataRobot,2012,1,1,0,1,proprietary,"\cite{datarobot_home,datarobot_textai_resources,datarobot_visualai_spec,datarobot_data_drift}",platform,,,
 H2O Driverless AI,2017,1,0,0,1,proprietary,"\cite{h2o_dai_licenses,h2o_dai_nlp}",platform,Availability in paper table: Propr. (licensed).,,
-H2O-3 AutoML (H2O AutoML),2017,0,0,0,1,oss,"\cite{h2o3_automl_docs,h2o3_github,h2o3_license}",platform,,,
 Azure Automated ML,2018,1,1,0,1,proprietary,"\cite{azure_automl_overview,azure_automl_nlp,azure_automl_cv}",platform,,,
-IBM Watson Studio (AutoAI),2018,0,0,0,1,proprietary,"\cite{ibm_watson_studio,ibm_autoai_overview}",platform,,,
 Salesforce TransmogrifAI,2018,1,0,0,1,oss,\footnote{\url{https://transmogrif.ai/}},platform,,,
-Amazon Sagemaker AutoPilot,2019,0,0,0,1,proprietary,\cite{aws_autopilot_datasets},platform,,,
 Ludwig,2019,1,1,1,1,oss,\cite{molino2019ludwig},platform,,,
 PaddlePaddle Multimodal Toolkit,2020,1,1,1,0,oss,\footnote{\url{https://www.paddlepaddle.org.cn/}},platform,,,
 PyCaret,2020,1,0,0,1,oss,\cite{PyCaret},platform,,,
